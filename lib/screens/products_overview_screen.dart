@@ -46,17 +46,18 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                     )
                   ]),
           Consumer<Cart>(
-            builder: (_, cartData, x) {
+            builder: (_, cartData, ch) {
               return Badge(
-                child: IconButton(
-                  icon: Icon(Icons.shopping_cart),
-                  onPressed: () {},
-                ),
+                child: ch!,
                 value: cartData.countItem.toString(),
                 color: Theme.of(context).backgroundColor,
               );
             },
-          )
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+          ),
         ],
       ),
       body: ProductGrid(_showFavoritesOnly),
