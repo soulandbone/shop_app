@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/cart_Item.dart';
 
 class Cart with ChangeNotifier {
-  late Map<String, CartItem> _items;
+  Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items {
     // Key of Map is the Id of the original, product.
@@ -24,5 +24,10 @@ class Cart with ChangeNotifier {
               price: price,
               quantity: 1,
             ));
+    notifyListeners();
+  }
+
+  int get countItem {
+    return _items.length;
   }
 }
