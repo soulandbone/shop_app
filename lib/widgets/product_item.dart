@@ -8,11 +8,10 @@ import '../providers/product.dart';
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
+    final product = Provider.of<Product>(
+        context); // cannot be listen false, because we need to update the favorite button, which depends on this provider. If its set to false, then it will not update here.
 
-    final cartData = Provider.of<Cart>(context,
-        listen:
-            false); // cannot be listen false, because we need to update the favorite button, which depends on this provider. If its set to false, then it will not update here.
+    final cartData = Provider.of<Cart>(context, listen: false);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
